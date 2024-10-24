@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 22:17:52 by karai             #+#    #+#             */
-/*   Updated: 2024/10/24 19:55:25 by karai            ###   ########.fr       */
+/*   Created: 2024/10/24 20:59:43 by karai             #+#    #+#             */
+/*   Updated: 2024/10/24 21:02:00 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+char	*ft_strnpy(char *dest, const char *src, size_t n)
 {
-	unsigned char	*mem;
-	int				i;
+	size_t	i;
 
-	mem = (unsigned char *)s;
 	i = 0;
-	while (i < n)
+	while (src[i] != '\0' && i < n)
 	{
-		mem[i] = (unsigned char)c;
+		dest[i] = src[i];
 		i += 1;
 	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i += 1;
+	}
+	return (dest);
 }

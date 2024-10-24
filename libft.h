@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 22:17:52 by karai             #+#    #+#             */
-/*   Updated: 2024/10/24 19:55:25 by karai            ###   ########.fr       */
+/*   Created: 2024/10/24 19:35:33 by karai             #+#    #+#             */
+/*   Updated: 2024/10/24 19:38:40 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFT_H
+# define LIBFT_H
 
-void	*ft_memset(void *s, int c, size_t n)
-{
-	unsigned char	*mem;
-	int				i;
+# include <stddef.h>
 
-	mem = (unsigned char *)s;
-	i = 0;
-	while (i < n)
-	{
-		mem[i] = (unsigned char)c;
-		i += 1;
-	}
-}
+int	ft_strlen(char *str);
+
+#endif

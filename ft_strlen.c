@@ -6,11 +6,13 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 22:17:16 by karai             #+#    #+#             */
-/*   Updated: 2024/10/23 22:17:20 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/24 19:47:49 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include "libft.h"
+
+size_t	ft_strlen(char *str)
 {
 	int	i;
 
