@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 19:35:33 by karai             #+#    #+#             */
-/*   Updated: 2024/10/25 21:17:58 by karai            ###   ########.fr       */
+/*   Created: 2024/10/25 19:08:56 by karai             #+#    #+#             */
+/*   Updated: 2024/10/25 19:22:38 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stddef.h>
-# include <stdlib.h>
+void	*calloc(size_t nmemb, size_t size)
+{
+	void	*ptr;
+	int		i;
 
-int		ft_strlen(char *str);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-char	*ft_strdup(const char *s);
-
-#endif
+	ptr = malloc(nmemb * size);
+	if (ptr == NULL)
+		return (NULL);
+	ft_bzero((void *)ptr, nmemb * size);
+	return (ptr);
+}

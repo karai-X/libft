@@ -6,13 +6,13 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 21:52:05 by karai             #+#    #+#             */
-/*   Updated: 2024/10/24 22:16:18 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/25 21:21:28 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	judge(const char *str_part, const char *to_find, size_t len)
+static int	judge(const char *str_part, const char *to_find, size_t len)
 {
 	size_t	i;
 

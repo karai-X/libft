@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 19:35:33 by karai             #+#    #+#             */
-/*   Updated: 2024/10/25 21:17:58 by karai            ###   ########.fr       */
+/*   Created: 2024/10/25 20:51:33 by karai             #+#    #+#             */
+/*   Updated: 2024/10/25 20:55:36 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stddef.h>
-# include <stdlib.h>
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	size_t			i;
+	unsigned char	*us_dest;
+	unsigned char	*us_src;
 
-int		ft_strlen(char *str);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-char	*ft_strdup(const char *s);
-
-#endif
+	us_dest = (unsigned char *)dest;
+	us_src = (unsigned char *)src;
+	i = 0;
+	while (i < n)
+	{
+		us_dest[i] = us_src[i];
+		i += 1;
+	}
+	return (dest);
+}
