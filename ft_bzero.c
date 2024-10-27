@@ -6,7 +6,7 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 19:48:33 by karai             #+#    #+#             */
-/*   Updated: 2024/10/27 14:24:48 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/27 15:33:06 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_bzero(void *s, size_t n)
 	unsigned char	*mem;
 	size_t			i;
 
-	mem = (unsigned char*)s;
+	mem = (unsigned char *)s;
 	i = 0;
 	while (i < n)
 	{

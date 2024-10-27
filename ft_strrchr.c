@@ -6,13 +6,13 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 20:13:04 by karai             #+#    #+#             */
-/*   Updated: 2024/10/27 14:31:13 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/27 16:11:12 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	size_t	length;
 

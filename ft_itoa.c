@@ -6,13 +6,13 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 13:59:36 by karai             #+#    #+#             */
-/*   Updated: 2024/10/27 14:46:07 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/27 18:46:47 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_digit_len(int n)
+static size_t	ft_digit_len(long n)
 {
 	size_t	digit_len;
 
@@ -36,23 +36,36 @@ char	*ft_itoa(int n)
 {
 	size_t	digit_len;
 	char	*str;
+	long	n_long;
 
-	digit_len = ft_digit_len(n);
+	n_long = (long)n;
+	digit_len = ft_digit_len(n_long);
 	str = (char *)malloc(sizeof(char) * (digit_len + 1));
 	if (str == NULL)
 		return (NULL);
-	if (n < 0)
+	str[digit_len] = '\0';
+	if (n_long == 0)
+		str[0] = '0';
+	if (n_long < 0)
 	{
 		str[0] = '-';
-		n *= -1;
+		n_long *= -1;
 	}
-	str[digit_len] = '\0';
 	digit_len -= 1;
-	while (n != 0)
+	while (n_long != 0)
 	{
-		str[digit_len] = '0' + (n % 10);
+		str[digit_len] = '0' + (n_long % 10);
 		digit_len -= 1;
-		n /= 10;
+		n_long /= 10;
 	}
 	return (str);
 }
+
+// #include <limits.h>
+// #include <stdio.h>
+// int main(void)
+// {
+// 	printf("%d\n", INT_MIN);
+// 	char *s = ft_itoa(INT_MIN);
+// 	printf("%s\n",s);
+// }

@@ -6,26 +6,24 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 20:59:43 by karai             #+#    #+#             */
-/*   Updated: 2024/10/24 21:02:00 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/27 16:08:53 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnpy(char *dest, const char *src, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	while (src[i] != '\0' && i < n)
+	while ((i < n) && (s1[i] != '\0' || s2[i] != '\0'))
 	{
-		dest[i] = src[i];
+		if (s1[i] != s2[i])
+		{
+			return (s1[i] - s2[i]);
+		}
 		i += 1;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i += 1;
-	}
-	return (dest);
+	return (0);
 }

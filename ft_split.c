@@ -6,7 +6,7 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 21:45:48 by karai             #+#    #+#             */
-/*   Updated: 2024/10/27 14:45:42 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/27 18:31:36 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static size_t	size_divide(char const *str, char c)
 
 static void	malloc_part(char **ret_str_i, char const *str, char c)
 {
-	int	j;
-	int	size;
+	size_t	j;
+	size_t	size;
 
 	size = 0;
 	while (str[size] != '\0' && str[size] != c)
@@ -68,15 +68,16 @@ static char	**ft_split_part(char **ret_str, char c, char const *str)
 
 	i = 0;
 	j = 0;
-	while (str[j] != '\0' && str[i] == c)
+	while (str[j] != '\0' && str[j] == c)
 		j++;
 	while (str[j] != '\0')
 	{
-		if (i == 0 || (str[j] != c && str[j] == c))
+		if (i == 0 || (str[j] != c && str[j - 1] == c))
 		{
 			malloc_part(&ret_str[i], &str[j], c);
 			if (ret_str[i] == NULL)
 				return (free_2dim(ret_str, i));
+			i += 1;
 		}
 		j += 1;
 	}
@@ -95,9 +96,18 @@ char	**ft_split(char const *str, char c)
 	ret_str = ft_split_part(ret_str, c, str);
 	if (ret_str == NULL)
 		return (NULL);
-	ret_str[size_2dim - 1] = (char *)malloc(sizeof(char));
-	if (ret_str[size_2dim - 1] == NULL)
-		return (free_2dim(ret_str, size_2dim - 1));
 	ret_str[size_2dim - 1] = NULL;
 	return (ret_str);
 }
+
+// #include <stdio.h>
+// int main(void)
+// {
+// 	char ** tab = ft_split("  tripouille  42  ", ' ');
+// 	int i = 0;
+// 	while(tab[i]!=NULL)
+// 	{
+// 		printf("%s\n",tab[i]);
+// 		i += 1;
+// 	}
+// }
