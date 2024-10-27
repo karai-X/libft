@@ -6,7 +6,7 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 21:52:05 by karai             #+#    #+#             */
-/*   Updated: 2024/10/25 21:21:28 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/27 14:32:15 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 
-	if (little[i] == '\0')
+	if (little[0] == '\0')
 		return ((char *)big);
 	if (len == 0)
 		return (NULL);

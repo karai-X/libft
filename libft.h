@@ -6,7 +6,7 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 19:35:33 by karai             #+#    #+#             */
-/*   Updated: 2024/10/25 21:17:58 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/27 15:04:28 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 
 # include <stddef.h>
 # include <stdlib.h>
+# include <unistd.h>
 
-int		ft_strlen(char *str);
+size_t	ft_strlen(const char *str);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	*ft_strdup(const char *s);
+void	ft_bzero(void *s, size_t n);
 
 #endif

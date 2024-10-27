@@ -6,7 +6,7 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 19:33:50 by karai             #+#    #+#             */
-/*   Updated: 2024/10/25 19:55:59 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/27 14:36:19 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	src_len = ft_strlen(s);
 	if (src_len <= start || len == 0)
-		retrun(ft_strdup(""));
+		return (ft_strdup(""));
 	if (src_len <= start + len)
 		alloc_len = src_len - start;
 	else
@@ -29,4 +29,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (ptr == NULL)
 		return (NULL);
 	ft_strlcpy(ptr, &s[start], alloc_len + 1);
+	return (ptr);
 }

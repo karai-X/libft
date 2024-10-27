@@ -6,7 +6,7 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 21:45:48 by karai             #+#    #+#             */
-/*   Updated: 2024/10/26 22:10:18 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/27 14:45:42 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ static size_t	size_divide(char const *str, char c)
 		i += 1;
 	while (str[i] != '\0')
 	{
-		if (size == 0 || str[i] != c && str[i - 1] == c)
+		if (size == 0 || (str[i] != c && str[i - 1] == c))
 			size += 1;
 		i += 1;
 	}
 	return (size + 1);
 }
 
-static void	malloc_part(char **ret_str_i, char *str, char c)
+static void	malloc_part(char **ret_str_i, char const *str, char c)
 {
 	int	j;
 	int	size;
@@ -40,7 +40,7 @@ static void	malloc_part(char **ret_str_i, char *str, char c)
 		size += 1;
 	*ret_str_i = (char *)malloc(sizeof(char) * (size + 1));
 	if (*ret_str_i == NULL)
-		return (NULL);
+		return ;
 	j = 0;
 	while (str[j] != '\0' && str[j] != c)
 	{
@@ -61,7 +61,7 @@ static char	**free_2dim(char **ret_str, size_t i)
 	return (NULL);
 }
 
-static char	**ft_split_part(char **ret_str, char c, char *str)
+static char	**ft_split_part(char **ret_str, char c, char const *str)
 {
 	size_t	i;
 	size_t	j;
@@ -76,7 +76,7 @@ static char	**ft_split_part(char **ret_str, char c, char *str)
 		{
 			malloc_part(&ret_str[i], &str[j], c);
 			if (ret_str[i] == NULL)
-				return (free_2dim(**ret_str, i));
+				return (free_2dim(ret_str, i));
 		}
 		j += 1;
 	}
@@ -87,7 +87,6 @@ char	**ft_split(char const *str, char c)
 {
 	size_t	size_2dim;
 	char	**ret_str;
-	char	*last;
 
 	size_2dim = size_divide(str, c);
 	ret_str = (char **)malloc(sizeof(char *) * size_2dim);

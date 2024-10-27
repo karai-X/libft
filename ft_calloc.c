@@ -6,7 +6,7 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 19:08:56 by karai             #+#    #+#             */
-/*   Updated: 2024/10/25 19:22:38 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/27 14:32:48 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	*calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
-	int		i;
 
 	ptr = malloc(nmemb * size);
 	if (ptr == NULL)
