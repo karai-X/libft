@@ -6,7 +6,7 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 21:45:48 by karai             #+#    #+#             */
-/*   Updated: 2024/10/27 18:31:36 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/28 23:47:35 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ char	**ft_split(char const *str, char c)
 	size_t	size_2dim;
 	char	**ret_str;
 
+	if (str == NULL)
+		return (NULL);
 	size_2dim = size_divide(str, c);
 	ret_str = (char **)malloc(sizeof(char *) * size_2dim);
 	if (ret_str == NULL)
@@ -103,7 +105,8 @@ char	**ft_split(char const *str, char c)
 // #include <stdio.h>
 // int main(void)
 // {
-// 	char ** tab = ft_split("  tripouille  42  ", ' ');
+// 	char	**tab = ft_split("a", ' ');
+// 	printf("%p\n",tab);
 // 	int i = 0;
 // 	while(tab[i]!=NULL)
 // 	{

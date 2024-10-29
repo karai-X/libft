@@ -6,7 +6,7 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 13:59:36 by karai             #+#    #+#             */
-/*   Updated: 2024/10/27 18:46:47 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/28 20:25:24 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ static size_t	ft_digit_len(long n)
 
 char	*ft_itoa(int n)
 {
-	size_t	digit_len;
-	char	*str;
-	long	n_long;
+	size_t		digit_len;
+	char		*str;
+	long long	n_long;
 
-	n_long = (long)n;
+	n_long = (long long)n;
 	digit_len = ft_digit_len(n_long);
 	str = (char *)malloc(sizeof(char) * (digit_len + 1));
 	if (str == NULL)

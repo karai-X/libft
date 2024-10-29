@@ -6,27 +6,11 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 21:10:41 by karai             #+#    #+#             */
-/*   Updated: 2024/10/27 18:59:15 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/29 20:21:58 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	ft_alloc_len(const char *s1, unsigned char trim[256])
-{
-	size_t	alloc_len;
-	size_t	i;
-
-	alloc_len = 0;
-	i = 0;
-	while (s1[i] != '\0')
-	{
-		if (trim[(int)s1[i] + 128] == 0)
-			alloc_len += 1;
-		i += 1;
-	}
-	return (alloc_len);
-}
 
 static void	ft_trim_set(const char *set, unsigned char trim[256])
 {
@@ -40,42 +24,30 @@ static void	ft_trim_set(const char *set, unsigned char trim[256])
 	}
 }
 
-static void	ft_get_str(const char *s1, char *str, unsigned char trim[256])
-{
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = 0;
-	while (s1[i] != '\0')
-	{
-		if (trim[(int)s1[i] + 128] == 0)
-		{
-			str[j] = s1[i];
-			j += 1;
-		}
-		i += 1;
-	}
-	str[j] = '\0';
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	unsigned char	trim[256];
-	size_t			alloc_len;
+	size_t			s1_len;
 	char			*str;
+	size_t			start;
+	size_t			end;
 
-	if (s1 == NULL)
+	if (s1 == NULL || set == NULL)
 		return (NULL);
-	if (set == NULL)
-		return (ft_strdup(s1));
 	ft_memset(trim, 0, 256);
 	ft_trim_set(set, trim);
-	alloc_len = ft_alloc_len(s1, trim);
-	str = (char *)malloc(alloc_len + 1);
+	s1_len = ft_strlen(s1);
+	start = 0;
+	end = s1_len;
+	while (trim[(int)s1[start] + 128])
+		start += 1;
+	end -= 1;
+	while (end > start && trim[(int)s1[end] + 128])
+		end -= 1;
+	str = (char *)malloc(end - start + 2);
 	if (str == NULL)
 		return (NULL);
-	ft_get_str(s1, str, trim);
+	ft_strlcpy(str, &s1[start], (end - start + 2));
 	return (str);
 }
 
@@ -86,4 +58,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 // 	char *s = ft_strtrim("   xxxtripouille   xxx", " x");
 // 	printf("%s\n",s);
 // 	printf("%ld\n",strlen(s));
+
+// 	char	*s1 = "   \t \n\nHello \t  Please\n Trim me !\n   \n \\n  ";
+// 	char	*s2 = "Hello \t  Please\n Trim me !";
+// 	printf("%s\n",ft_strtrim(s1, " \n\t"));
+
+// 	char *s3 = "  \t \t \n \n\n\n\t";
+// 	char *s4 = "";
+// 	char *ret = ft_strtrim(s3, " \n\t");
+// 	printf("%s\n",ret);
 // }

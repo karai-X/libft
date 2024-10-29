@@ -34,7 +34,7 @@ SRCS = ft_isalpha.c\
 		ft_putstr_fd.c\
 		ft_putendl_fd.c\
 		ft_putnbr_fd.c\
-		
+
 OBJS = $(SRCS:.c=.o)
 TARGET = libft.a
 
@@ -44,9 +44,9 @@ $(TARGET): $(OBJS)
 		ar rcs $@ $(OBJS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-		$(CC) $(CFLAGS) -c $< -o $@ 
+		$(CC) $(CFLAGS) -c $< -o $@
 
-clean: 
+clean:
 		rm -f $(OBJS)
 
 fclean: clean

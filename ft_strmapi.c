@@ -6,7 +6,7 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 14:54:17 by karai             #+#    #+#             */
-/*   Updated: 2024/10/27 19:31:26 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/29 19:32:02 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*new_str;
 	unsigned int	i;
 
+	if (s == NULL)
+		return (NULL);
 	length = ft_strlen(s);
 	new_str = (char *)malloc(sizeof(char) * (length + 1));
 	if (new_str == NULL)
