@@ -6,7 +6,7 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 21:52:05 by karai             #+#    #+#             */
-/*   Updated: 2024/10/27 17:10:17 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/30 21:03:42 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	{
 		if (judge(&big[i], little, len, i))
 			return ((char *)&big[i]);
+		if (i == SIZE_MAX)
+			return (NULL);
 		i += 1;
 	}
 	return (NULL);

@@ -6,7 +6,7 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 22:17:16 by karai             #+#    #+#             */
-/*   Updated: 2024/10/28 22:40:25 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/30 19:14:19 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,22 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int	i;
 	int	ans;
 	int	pm;
 
-	i = 0;
 	ans = 0;
 	pm = 1;
-	while (nptr[i] == '\f' || nptr[i] == '\n' || nptr[i] == '\r'
-		|| nptr[i] == '\t' || nptr[i] == '\v' || nptr[i] == ' ')
-		i += 1;
-	if (nptr[i] == '-')
+	while (*nptr == '\f' || *nptr == '\n' || *nptr == '\r'
+		|| *nptr == '\t' || *nptr == '\v' || *nptr == ' ')
+		nptr += 1;
+	if (*nptr == '-')
 		pm = -1;
-	if (nptr[i] == '-' || nptr[i] == '+')
-		i += 1;
-	while (nptr[i] <= '9' && nptr[i] >= '0' )
+	if (*nptr == '-' || *nptr == '+')
+		nptr += 1;
+	while (*nptr <= '9' && *nptr >= '0' )
 	{
-		ans = ans * 10 + (nptr[i] - '0');
-		i += 1;
+		ans = ans * 10 + (*nptr - '0');
+		nptr += 1;
 	}
 	return (ans * pm);
 }

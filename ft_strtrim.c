@@ -6,7 +6,7 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 21:10:41 by karai             #+#    #+#             */
-/*   Updated: 2024/10/29 20:21:58 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/30 20:39:34 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 static void	ft_trim_set(const char *set, unsigned char trim[256])
 {
-	size_t	i;
-
-	i = 0;
-	while (set[i] != '\0')
+	while (*set != '\0')
 	{
-		trim[(int)set[i] + 128] = 1;
-		i += 1;
+		trim[(int)(*set) + 128] = 1;
+		set += 1;
 	}
 }
 
@@ -58,13 +55,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 // 	char *s = ft_strtrim("   xxxtripouille   xxx", " x");
 // 	printf("%s\n",s);
 // 	printf("%ld\n",strlen(s));
-
-// 	char	*s1 = "   \t \n\nHello \t  Please\n Trim me !\n   \n \\n  ";
-// 	char	*s2 = "Hello \t  Please\n Trim me !";
-// 	printf("%s\n",ft_strtrim(s1, " \n\t"));
-
-// 	char *s3 = "  \t \t \n \n\n\n\t";
-// 	char *s4 = "";
-// 	char *ret = ft_strtrim(s3, " \n\t");
-// 	printf("%s\n",ret);
+// 	// char	*s1 = "   \t \n\nHello \t  Please\n Trim me !\n   \n \\n  ";
+// 	// char	*s2 = "Hello \t  Please\n Trim me !";
+// 	// printf("%s\n",ft_strtrim(s1, " \n\t"));
+// 	// // char *s3 = "  \t \t \n \n\n\n\t";
+// 	// // char *s4 = "";
+// 	// // char *ret = ft_strtrim(s3, " \n\t");
+// 	// // printf("%s\n",ret);
+// 	char *a = ft_strtrim("", "");
+// 	printf("%s\n",a);
 // }

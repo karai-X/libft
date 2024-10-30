@@ -6,13 +6,13 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 15:09:54 by karai             #+#    #+#             */
-/*   Updated: 2024/10/27 19:21:30 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/30 19:24:27 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_minus(long *nb, int fd)
+void	ft_putnbr_minus(long long *nb, int fd)
 {
 	if (*nb < 0)
 	{
@@ -23,12 +23,12 @@ void	ft_putnbr_minus(long *nb, int fd)
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int		div;
-	int		tmp;
-	char	num_char;
-	long	nb_long;
+	int			div;
+	long long	tmp;
+	char		num_char;
+	long long	nb_long;
 
-	nb_long = (long)n;
+	nb_long = (long long)n;
 	ft_putnbr_minus(&nb_long, fd);
 	div = 1;
 	tmp = nb_long;

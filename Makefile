@@ -41,7 +41,7 @@ TARGET = libft.a
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-		ar rcs $@ $(OBJS)
+		ar rc $@ $(OBJS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 		$(CC) $(CFLAGS) -c $< -o $@

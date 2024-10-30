@@ -6,7 +6,7 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 14:48:11 by karai             #+#    #+#             */
-/*   Updated: 2024/10/29 19:36:15 by karai            ###   ########.fr       */
+/*   Updated: 2024/10/30 19:54:55 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	while (s[i] != '\0')
 	{
 		f(i, &s[i]);
+		if (i == UINT_MAX)
+			return ;
 		i += 1;
 	}
 }
