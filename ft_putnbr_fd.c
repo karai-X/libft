@@ -6,13 +6,13 @@
 /*   By: karai <karai@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 15:09:54 by karai             #+#    #+#             */
-/*   Updated: 2024/10/30 19:24:27 by karai            ###   ########.fr       */
+/*   Updated: 2024/11/04 16:36:58 by karai            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_minus(long long *nb, int fd)
+static void	ft_putnbr_minus(long long *nb, int fd)
 {
 	if (*nb < 0)
 	{

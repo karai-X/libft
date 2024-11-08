@@ -36,21 +36,21 @@ SRCS = ft_isalpha.c\
 		ft_putnbr_fd.c\
 
 OBJS = $(SRCS:.c=.o)
-TARGET = libft.a
+NAME = libft.a
 
-all: $(TARGET)
+all: $(NAME)
 
-$(TARGET): $(OBJS)
-		ar rc $@ $(OBJS)
+$(NAME): $(OBJS)
+		ar rcs $@ $(OBJS)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+%.o: %.c
 		$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 		rm -f $(OBJS)
 
 fclean: clean
-		rm -f $(TARGET)
+		rm -f $(NAME)
 
 re: fclean all
 
